@@ -11,6 +11,9 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 //Creating a mongodb connection
 mongoose.connect("mongodb://localhost:27017/blogDB");
+mongoose.connection.once("open", () => {
+  console.log("MongoDB connected at port 27017");
+});
 
 //Creating a new instance of express
 const app = express();
