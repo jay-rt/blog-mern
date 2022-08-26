@@ -18,12 +18,7 @@ const app = express();
 //serving static files
 app.use(express.static(join(__dirname, "build")));
 
-// configuring cors
-const corsOption = {
-  origin: "http://localhost:5000",
-};
-
-app.use(cors(corsOption));
+app.use(cors());
 
 app.use(express.json());
 app.use("/posts", postRouter);
