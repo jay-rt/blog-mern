@@ -10,7 +10,7 @@ import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 //Creating a mongodb connection
-mongoose.connect("mongodb://127.0.0.1:27017/blogDB");
+mongoose.connect("mongodb://localhost:27017/blogDB");
 
 //Creating a new instance of express
 const app = express();
