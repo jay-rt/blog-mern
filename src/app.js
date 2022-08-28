@@ -1,6 +1,5 @@
 //importing necessary modules
 import express from "express";
-import cors from "cors";
 import mongoose from "mongoose";
 import postRouter from "../routes/post.js";
 import { dirname, join } from "path";
@@ -11,17 +10,12 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 //Creating a mongodb connection
 mongoose.connect("mongodb://localhost:27017/blogDB");
-mongoose.connection.once("open", () => {
-  console.log("MongoDB connected at port 27017");
-});
 
 //Creating a new instance of express
 const app = express();
 
 //serving static files
 app.use(express.static(join(__dirname, "build")));
-
-app.use(cors());
 
 app.use(express.json());
 app.use("/posts", postRouter);
